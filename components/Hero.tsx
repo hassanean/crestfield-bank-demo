@@ -66,51 +66,47 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: dashboard card mockup */}
-          <div className="hidden lg:block">
+          {/* Right: product highlights */}
+          <div className="hidden lg:flex flex-col gap-4">
+            {/* Open account CTA card */}
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-2xl">
-              {/* Card header */}
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <p className="text-blue-300 text-xs mb-0.5">Total Balance</p>
-                  <p className="text-white text-3xl font-bold">$48,295.00</p>
-                </div>
-                <div className="w-12 h-8 rounded bg-gradient-to-r from-[#D4AF37] to-[#A87614] flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">VISA</span>
-                </div>
-              </div>
-
-              {/* Accounts */}
-              <div className="space-y-3 mb-6">
+              <p className="text-[#D4AF37] text-xs font-semibold uppercase tracking-widest mb-2">Get Started Today</p>
+              <h3 className="text-white text-xl font-bold mb-1">Open an Account in Minutes</h3>
+              <p className="text-blue-200 text-sm mb-5">No paperwork. No branch visit required. Just a few details and you're in.</p>
+              <div className="space-y-3 mb-5">
                 {[
-                  { name: "Everyday Checking", num: "••••  4821", balance: "$3,840.12", change: "+$240.00" },
-                  { name: "High-Yield Savings", num: "••••  9034", balance: "$22,105.50", change: "+$89.42" },
-                  { name: "Investment Portfolio", num: "••••  1177", balance: "$22,349.38", change: "+$1,204.30" },
-                ].map((acct) => (
-                  <div key={acct.name} className="flex items-center justify-between bg-white/5 rounded-xl px-4 py-3">
-                    <div>
-                      <p className="text-white text-sm font-medium">{acct.name}</p>
-                      <p className="text-blue-300 text-xs">{acct.num}</p>
+                  { step: "1", label: "Choose your account type" },
+                  { step: "2", label: "Verify your identity securely" },
+                  { step: "3", label: "Fund and start banking" },
+                ].map(({ step, label }) => (
+                  <div key={step} className="flex items-center gap-3">
+                    <div className="w-7 h-7 rounded-full bg-[#D4AF37] flex items-center justify-center shrink-0">
+                      <span className="text-[#0B1F4A] text-xs font-bold">{step}</span>
                     </div>
-                    <div className="text-right">
-                      <p className="text-white text-sm font-semibold">{acct.balance}</p>
-                      <p className="text-emerald-400 text-xs">{acct.change}</p>
-                    </div>
+                    <span className="text-white text-sm">{label}</span>
                   </div>
                 ))}
               </div>
+              <a
+                href="#"
+                className="block text-center bg-[#D4AF37] hover:bg-[#C9931A] text-[#0B1F4A] font-semibold text-sm py-3 rounded-full transition-colors"
+              >
+                Open Your Account
+              </a>
+            </div>
 
-              {/* Quick actions */}
-              <div className="grid grid-cols-4 gap-2">
-                {["Transfer", "Pay Bill", "Deposit", "More"].map((action) => (
-                  <button
-                    key={action}
-                    className="bg-white/10 hover:bg-white/20 text-white text-xs font-medium py-2 rounded-lg transition-colors"
-                  >
-                    {action}
-                  </button>
-                ))}
-              </div>
+            {/* Rate highlights */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: "High-Yield Savings APY", value: "4.85%", note: "No minimum balance" },
+                { label: "12-Month CD APY", value: "5.10%", note: "FDIC insured up to $250K" },
+              ].map(({ label, value, note }) => (
+                <div key={label} className="bg-white/10 border border-white/20 rounded-xl p-4">
+                  <p className="text-blue-300 text-xs mb-1">{label}</p>
+                  <p className="text-[#D4AF37] text-2xl font-bold">{value}</p>
+                  <p className="text-blue-400 text-xs mt-1">{note}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

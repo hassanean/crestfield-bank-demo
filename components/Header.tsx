@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, MessageCircle } from "lucide-react";
 
 const navItems = [
   {
@@ -29,8 +29,27 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       {/* Top utility bar */}
-      <div className="bg-[#0B1F4A] text-white text-xs py-1.5 px-4 text-center">
-        <span>FDIC Insured &nbsp;·&nbsp; Member FDIC &nbsp;·&nbsp; Equal Housing Lender</span>
+      <div className="bg-[#0B1F4A] text-white text-xs py-1.5 px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <span className="hidden sm:block opacity-70">FDIC Insured &nbsp;·&nbsp; Member FDIC &nbsp;·&nbsp; Equal Housing Lender</span>
+          <div className="flex items-center gap-4 ml-auto">
+            <a
+              href="tel:+17013948910"
+              className="flex items-center gap-1.5 hover:text-[#D4AF37] transition-colors"
+            >
+              <Phone className="w-3 h-3" />
+              <span className="font-medium">(701) 394-8910</span>
+            </a>
+            <span className="opacity-30">|</span>
+            <button
+              onClick={() => document.getElementById("dx_chatbot_fab_id")?.click()}
+              className="flex items-center gap-1.5 text-[#D4AF37] hover:text-white transition-colors font-medium"
+            >
+              <MessageCircle className="w-3 h-3" />
+              Chat Live with George
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
