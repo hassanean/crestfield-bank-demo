@@ -46,7 +46,7 @@ export default function Header() {
               className="flex items-center gap-1.5 text-[#D4AF37] hover:text-white transition-colors font-medium"
             >
               <MessageCircle className="w-3 h-3" />
-              Chat Live with George
+              Chat Live with Lisa
             </button>
           </div>
         </div>
